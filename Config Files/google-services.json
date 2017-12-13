@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "478142718545",
+    "project_id": "firebase-chashmenam"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:478142718545:android:499c435804bbbb32",
+        "android_client_info": {
+          "package_name": "inc.gorby.chashmenam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "478142718545-8ik3qd64gahco2p8r0l768plivnvbgmj.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "478142718545-g512s9ar6qpa2ednvv6elkh2lmrd88gv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "inc.gorby.chashmenam",
+            "certificate_hash": "72145b5cbf1baf8474d5b2da3f365f34b6b2326c"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBz5eYixCPaX6jZtAT37uLOns5ZjG0l7_Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
