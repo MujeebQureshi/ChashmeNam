@@ -1,11 +1,11 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "HelloCordova",
-  "short_name": "HelloCordova",
-  "version": "io.cordova.hellocordova",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
-  "author": "Apache Cordova Team",
+  "name": "Chashm-e-Nam",
+  "short_name": "Chashm-e-Nam",
+  "version": "inc.gorby.chashmenam",
+  "description": "Short description mate.",
+  "author": "Gorby Inc.",
   "icons": [],
-  "start_url": "index.html"
+  "start_url": "starter.html"
 }

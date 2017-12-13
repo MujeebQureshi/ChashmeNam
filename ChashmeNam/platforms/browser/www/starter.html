@@ -1,0 +1,359 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Chashm-e-Nam</title>
+		<!-- Required libs -->
+		<script src=""></script>
+		
+		<script src="js/onsenui.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/iziModal.js"></script>
+		<script src="js/iziToast.js"></script>
+		<script src="js/customHelperScripts.js"></script>
+		
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+		<!-- Autostyling -->
+		<script>
+			ons.platform.select('android');
+			var showStarterPage = false;
+		</script>
+		<!-- App -->
+		<script type="text/javascript">
+			
+		</script>
+		<!-- Stylesheet -->
+		<link rel="stylesheet" href="css/onsenui.css">
+		<link rel="stylesheet" href="css/onsen-css-components.css">
+		<!-- <link href="https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,500,400italic,500italic,700,700italic" rel="stylesheet" type="text/css"> -->
+		<style type="text/css">
+			
+			
+			#splash-page .page__background { 
+				background-image: -webkit-linear-gradient(90deg, #125582, #699E8C);
+				background-image: linear-gradient(360deg, #125582, #699E8C)
+			}
+			#login-page .page__background { 
+				background-image: -webkit-linear-gradient(90deg, #125582, #699E8C);
+				background-image: linear-gradient(360deg, #125582, #699E8C)
+			}
+			#signup-page .page__background { 
+				background-image: -webkit-linear-gradient(90deg, #125582, #699E8C);
+				background-image: linear-gradient(360deg, #125582, #699E8C)
+			}
+			
+			.text-input text-input--material{
+				color : darkgray;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<ons-navigator swipeable id="myNavigator" page="starter.html"></ons-navigator>
+		<template id="starter.html">
+			<ons-page id="splash-page">
+				<style type="text/css">
+					.logoAnim {
+						-webkit-transform: translateY(-100px);
+						-ms-transform: translateY(-100px);
+						-moz-transform: translateY(-100px);
+						-o-transform: translateY(-100px);
+						transform: translateY(-100px);
+						transition: all 1s ease;
+					}
+					
+					@keyframes fadein {
+						from { opacity: 0; }
+						to   { opacity: 1; }
+					}
+
+					/* Firefox  16 */
+					@-moz-keyframes fadein {
+						from { opacity: 0; }
+						to   { opacity: 1; }
+					}
+
+					/* Safari, Chrome and Opera > 12.1 */
+					@-webkit-keyframes fadein {
+						from { opacity: 0; }
+						to   { opacity: 1; }
+					}
+
+					/* Internet Explorer */
+					@-ms-keyframes fadein {
+						from { opacity: 0; }
+						to   { opacity: 1; }
+					}
+
+					/* Opera  12.1 */
+					@-o-keyframes fadein {
+						from { opacity: 0; }
+						to   { opacity: 1; }
+					}
+							
+					.loginAnim {
+
+						-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+						-moz-animation: fadein 2s; /* Firefox 16 */
+						-ms-animation: fadein 2s; /* Internet Explorer */
+						-o-animation: fadein 2s; /* Opera 12.1 */
+						animation: fadein 2s;
+						-webkit-animation-fill-mode: forwards;
+					}
+
+				</style>
+				<div class="" style="text-align : center;"> <!--splash-logo-->
+					<object id="appLogo" data="img/logos/logoCeN.svg" type="image/svg+xml" style="width: 200px;height: 200px; margin-top:100px; padding:20px"></object>
+				</div>
+				<form id="loginForm" name="loginForm" action="#">
+					<div id="login-det" style="text-align : center; margin-top:-50px; opacity:0;">
+						<div style="padding-left:20px; padding-right:20px;">
+							<ons-input id="UserNameOrEmail"  name="UserNameOrEmail" float="" placeholder="Username or Email" style="width:100%">
+								<input  type="email"  class="text-input" value=""  placeholder="Username or Email"  style="color:white">
+								<span class="text-input__label" style="color: darkgray;">Name</span>
+							</ons-input>
+						</div>
+						<div style="padding-top: 30px; padding-left:20px; padding-right:20px;">
+							<ons-input id="Password" name="Password" float="" placeholder="Password" style="width:100%">
+								<input  type="password" value=""  class="text-input" placeholder="Password" style="color:white">
+								<span class="text-input__label" style="color: darkgray;">Name</span>
+							</ons-input>
+						</div>
+						<div style="padding-top: 20px; padding-left:20px; padding-right:20px;">
+							<ons-button modifier="large" class="button-margin button button--large" style="background-color: dodgerblue; " onclick="appSignIn();" >Sign In 
+								<ons-icon style="display:none;" id="appSignInLoader" icon="ion-load-d" size="20px" spin></ons-icon>
+							</ons-button>
+						</div>
+						<div style="padding-top: 20px; padding-left:20px; padding-right:20px;">
+							<ons-button modifier="large" class="button-margin button button--large" style="background-color: #314777; " onclick="appSignInFB();"><ons-icon icon="md-facebook" class="ons-icon zmdi zmdi-facebook"></ons-icon> &nbsp;&nbsp;Sign In with Facebook
+								<ons-icon style="display:none;" id="appSignInFBLoader" icon="ion-load-d" size="20px" spin></ons-icon>
+							</ons-button>
+						</div>
+						<div style="padding-top: 20px; padding-left:20px; padding-right:20px;">
+							<ons-button modifier="large" class="button-margin button button--large" style="background-color: #ff274a; " onclick="appSignInGoogle();"><ons-icon icon="md-google-plus" class="ons-icon zmdi zmdi-google-plus"></ons-icon> &nbsp;&nbsp;Sign In with Google
+								<ons-icon style="display:none;" id="appSignInGoogleLoader" icon="ion-load-d" size="20px" spin></ons-icon>
+							</ons-button>
+						</div>
+						<div style="position: relative; bottom: 0; width: 100%; padding-bottom:10px; padding-top:20px; ">
+							<a href="javascript:void(0);" onclick="OpenSignUp();" style="display: inline-block; color: rgba(255, 255, 255, 0.4); font-size: 10px; text-align: center; text-decoration: none;">Don't have an account? <strong style="color: white; font-weight: 400;">Sign Up</strong></a> 
+						</div>
+					</div>
+				</form>
+			</ons-page>
+		</template>
+		
+		<template id="landing.html">
+			<ons-page id="landing-page">
+				<ons-button modifier="large" class="button-margin button button--large" style="background-color: dodgerblue; " onclick="Logout();">Logout</ons-button>
+				
+			</ons-page>
+		</template>
+		
+		<template id="signup.html">
+			<ons-page id="signup-page">
+				<div class="" style="text-align : center;"> <!--splash-logo-->
+					<object id="appLogoSignIn" data="img/logos/logoCeN.svg" type="image/svg+xml" style="width: 200px;height: 200px; margin-top:100px; padding:20px; transform: translateY(-100px);"></object>
+				</div>
+				<form id="registerform" name="registerform" action="#">
+					<div id="signin-det" style="text-align : center; margin-top:-50px; opacity:1;">
+						<div style="padding-top: 30px; padding-left:20px; padding-right:20px;">
+							<ons-input id="UserName"  name="UserName" float="" placeholder="Username" style="width:100%">
+								<input type="text" class="text-input" placeholder="Username" style="color:white">
+								<span class="text-input__label" style="color: darkgray;">Name</span>
+							</ons-input>
+						</div>
+						<div style="padding-top: 30px; padding-left:20px; padding-right:20px;">
+							<ons-input id="Email"  name="Email" float="" placeholder="Email" style="width:100%">
+								<input type="email" class="text-input" placeholder="Username or Email" style="color:white">
+								<span class="text-input__label" style="color: darkgray;">Name</span>
+							</ons-input>
+						</div>
+						<div style="padding-top: 30px; padding-left:20px; padding-right:20px;">
+							<ons-input id="Password" name="Password" float="" placeholder="Password" style="width:100%">
+								<input type="password" class="text-input" placeholder="Password" style="color:white">
+								<span class="text-input__label" style="color: darkgray;">Name</span>
+							</ons-input>
+						</div>
+						<div style="padding-top: 30px; padding-left:20px; padding-right:20px;">
+							<ons-input id="ConfirmPassword"  name="ConfirmPassword" float="" placeholder="Confirm Password" style="width:100%">
+								<input type="password" class="text-input" placeholder="Confirm Password" style="color:white">
+								<span class="text-input__label" style="color: darkgray;">Name</span>
+							</ons-input>
+						</div>
+						<div style="padding-top: 20px; padding-left:20px; padding-right:20px;">
+							<ons-button modifier="large" class="button-margin button button--large" style="background-color: dodgerblue; " onclick="appSignUp();">Sign Up
+								<ons-icon style="display:none;" id="appSignUpLoader" icon="ion-load-d" size="20px" spin></ons-icon>
+							</ons-button>
+						</div>
+						
+						<div style="position: relative; bottom: 0; width: 100%; padding-bottom:10px; padding-top:20px;">
+							<a href="javascript:void(0);" onclick="OpenSignIn();" style="display: inline-block; color: rgba(255, 255, 255, 0.4); font-size: 10px; text-align: center; text-decoration: none;">Already have an account? <strong style="color: white; font-weight: 400;">Sign In</strong></a> 
+						</div>
+					</div>
+				</form>
+			</ons-page>
+		</template>
+		
+		<ons-modal id="splash-modal" direction="up">
+			<div style="text-align: center">
+				<p>
+					<ons-icon icon="ion-load-d" size="28px" spin></ons-icon> Loading...
+				</p>
+			</div>
+		</ons-modal>
+		<script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript">
+				
+			document.addEventListener('init', function(event) {
+			  var page = event.target;
+				
+				if(getAppToken() != null){
+					redirectToLandingPage();
+				}
+				else{
+					if (page.id === 'splash-page') {
+					var modal = document.getElementById('splash-modal');
+					modal.show();
+
+					setTimeout(function() {
+						modal.hide();
+							$("#appLogo").addClass("logoAnim");
+							$("#login-det").addClass("loginAnim");
+					}, 3000);
+
+					}
+					else if(page.id === 'signup-page'){
+					
+					}
+					else{
+						redirectToLoginPage();
+					}
+					
+				}
+				
+				
+			});
+			
+			function OpenSignUp(){
+				var Navigator = document.querySelector('#myNavigator');
+				Navigator.pushPage('signup.html');
+				//Navigator.setAttribute('animation', 'fade');
+				//Navigator.addEventListener('postpush', function(ev){
+					//document.getElementById("appLogoLogin").className += " logoAnim";
+				//});
+				
+			}
+			
+			function OpenSignIn(){
+				var Navigator = document.querySelector('#myNavigator');
+				Navigator.popPage();	
+			}
+			
+			function appSignIn(){
+				var jsonResult = CreateJsonObject($("#loginForm").serializeArray());
+				var header = [];
+				var objHeader = {};
+				objHeader.name = "Content-Type";
+				objHeader.value = "application/json";
+				header.push(objHeader);
+				CreateRequest("api/Login", "POST", jsonResult, header, "checkToken",null,true);
+				showingLoader = "appSignInLoader";
+				$("#"+showingLoader).show();
+			}
+			
+			function appSignInGoogle() {
+				showingLoader = "appSignInGoogleLoader";
+				$("#"+showingLoader).show();
+				window.plugins.googleplus.login(
+					{},
+					function (obj) {
+						//document.querySelector("#image").src = obj.imageUrl;
+						//document.querySelector("#image").style.visibility = 'visible';
+						//document.querySelector("#feedback").innerHTML = "Hi, " + obj.displayName + ", " + obj.email;
+						$("#"+showingLoader).hide();
+						console.log(obj);
+					},
+					function (msg) {
+						$("#"+showingLoader).hide();
+						console.log(msg);
+						//document.querySelector("#feedback").innerHTML = "error: " + msg;
+					}
+				);
+			}
+			
+			function appSignInFB(){
+				facebookConnectPlugin.login(
+					[], 
+					function(response){
+						console.log(response);
+					}, 
+					function(response){
+						console.log(response);
+					}
+				);
+			}
+			
+			function appSignUp(){
+				var jsonResult = CreateJsonObject($("#registerform").serializeArray());
+				//console.log(jsonResult);
+				var header = [];
+				var objHeader = {};
+				objHeader.name = "Content-Type";
+				objHeader.value = "application/json";
+				header.push(objHeader);
+				CreateRequest("api/Register", "POST", jsonResult, header, "RegisterationSuccess",null,true);
+				showingLoader = "appSignUpLoader";
+				$("#"+showingLoader).show();
+				
+			}
+			
+			function checkToken(responseObject){
+				//console.log(responseObject["token"]);
+				if(responseObject["token"]){
+					redirectToLandingPage();
+				}
+			}
+			
+			function RegisterationSuccess(responseData){
+				if(responseData == "Registration Successful"){
+					ons.notification.toast({message: "Registration Successful : Please Sign In to continue.", timeout: 2000, callback : function(event){
+							var Navigator = document.querySelector('#myNavigator');
+							Navigator.popPage();
+						}
+					});
+				}
+			}
+			
+			function redirectToLandingPage(){
+				//window.location.href = "landing.html";
+				var Navigator = document.querySelector('#myNavigator');
+				Navigator.pushPage("landing.html");
+			}
+			
+			function Logout(){
+				var jsonResult = {};
+				jsonResult.token = getAppToken();
+				var header = [];
+				var objHeader = {};
+				objHeader.name = "Content-Type";
+				objHeader.value = "application/json";
+				header.push(objHeader);
+				var objTokenHeader = getAppTokenHeaderObject();
+				if(objTokenHeader != null){
+					header.push(objTokenHeader);
+				}
+				CreateRequest("api/Logout", "POST", jsonResult, header, "redirectToLoginPage",null,true);
+			
+			}
+			
+			function redirectToLoginPage(){
+				storage.removeItem("AppToken");
+				var Navigator = document.querySelector('#myNavigator');
+				//Navigator.popPage();
+				//Navigator.pushPage('starter.html');
+				window.location.href = "starter.html";
+			}
+			
+		</script>
+	</body>
+</html>

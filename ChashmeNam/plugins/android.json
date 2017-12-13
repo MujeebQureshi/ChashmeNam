@@ -9,6 +9,14 @@
   "installed_plugins": {
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-googleplus": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-facebook4": {
+      "APP_ID": "135689240448048",
+      "APP_NAME": "ChashmeNam",
+      "PACKAGE_NAME": "inc.gorby.chashmenam"
     }
   },
   "dependent_plugins": {}

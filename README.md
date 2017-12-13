@@ -21,3 +21,14 @@ git commit -m "first commit"
 git remote add origin https://github.com/MujeebQureshi/ChashmeNam.git
 git push -u origin master
 #####################
+
+To enable Facebook login
+1) Make sure you are logged in to your (company's) facebook account
+2) go to https://developers.facebook.com/
+3) Add new App, an AppID would be generated automatically
+4) generate a 28 character key hash using the following command on cmd (command prompt):
+	keytool -exportcert -alias androiddebugkey -keystore C:\Users\isd\.android\debug.keystore | openssl sha1 -binary | openssl base64
+(Note: you should have openssl on your system. Here is the download link: https://code.google.com/archive/p/openssl-for-windows/downloads 
+Moreover, the architecture (x32 or x64) must be consistent with your installed jre's/ jdk's architecture.
+5) Go to settings of App (in developers.facebook.com) and add new platform for the app. (Android / iOS)
+6) Add Package Name and 28 character hash and then save the settings.
